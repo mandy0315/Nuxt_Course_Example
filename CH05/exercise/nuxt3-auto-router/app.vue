@@ -1,4 +1,19 @@
+<script setup>
+const nuxtApp = useNuxtApp();
+const isLoading = ref(false);
+nuxtApp.hook('page:start', () => {
+  isLoading.value = true;
+})
+nuxtApp.hook('page:finish', () => {
+  isLoading.value = false;
+})
+</script>
 <template>
+  <!-- <NuxtLoadingIndicator color="#f00" :height="10" :throttle="0">
+    Loading
+  </NuxtLoadingIndicator> -->
+  <div v-show="isLoading">Loading....</div>
+
   <div id="app">
     <header>
       <img class="logo" src="./assets/image/logo2.png" alt="" />
@@ -12,6 +27,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html,
 body,
 #__nuxt,
@@ -29,6 +45,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
   img.logo {
     width: auto;
     height: 100%;

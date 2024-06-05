@@ -7,12 +7,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <NuxtLink
-    class="card"
-    v-for="item in props.courses"
-    :key="item.id"
-    :to="`/courses/${item.id}`"
-  >
+  <NuxtLink class="card" v-for="item in props.courses" :key="item.id" :to="`/courses/${item.id}`">
     <img :src="item.photo" alt="" />
     <div class="content">
       <h1>{{ item.name }}</h1>
@@ -30,9 +25,7 @@ const props = defineProps({
 a.card {
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 318px;
+  width: 400px;
   height: auto;
   padding: 10px;
   border-radius: 5px;
@@ -41,32 +34,49 @@ a.card {
   opacity: 0.7;
   transition: opacity 0.2s;
   background-color: rgb(231, 231, 231);
+
   &:hover {
     opacity: 1;
   }
-  > img {
+
+  >img {
     margin-right: 10px;
+    width: 200px;
+    height: auto;
   }
+
   .content {
-    > h1 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+
+    >h1 {
       font-size: 14px;
       text-align: left;
     }
+
     .teacher-box {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin-top: 5px;
-      > h2 {
+
+      >h2 {
         font-size: 13px;
+        align-self: center;
       }
+
       .teach-img {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        > img {
+
+
+        >img {
           border-radius: 25px;
           margin-right: 10px;
+          width: 40px;
+          height: 40px;
         }
       }
     }

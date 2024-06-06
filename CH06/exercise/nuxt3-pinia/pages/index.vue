@@ -1,5 +1,14 @@
 <script setup>
-// const store =https://vue-lessons-api.vercel.app/vote/list
+const voteStore = useVoteStore();
+await useAsyncData('voteList', async () => {
+  try {
+    const data = await $fetch('https://vue-lessons-api.vercel.app/vote/list');
+    voteStore.setVoteData(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+})
 </script>
 
 <template>
@@ -19,17 +28,20 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  > h1 {
+
+  >h1 {
     font-size: 30px;
     margin-bottom: 50px;
   }
 }
+
 .box_list {
   width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .card {
   width: 140px;
   height: 200px;
@@ -40,11 +52,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   .card_info {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     img {
       width: 100px;
     }

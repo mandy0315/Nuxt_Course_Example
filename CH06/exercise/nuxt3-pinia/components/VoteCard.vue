@@ -1,11 +1,13 @@
-<script setup></script>
+<script setup>
+const voteStore = useVoteStore();
+</script>
 <template>
-  <div class="card">
+  <div v-for="vote in voteStore.voteData" class="card" :key="vote.name">
     <div class="card_info">
-      <img src="" alt="" />
-      <h1>name</h1>
+      <img :src="vote.path" alt="" />
+      <h1>{{ vote.name }}</h1>
     </div>
-    <VoteBtn> 0 </VoteBtn>
+    <VoteBtn @click="voteStore.addVote(vote.name)">{{ voteStore.isFetched ? '投票中' : vote.count }}</VoteBtn>
   </div>
 </template>
 
@@ -20,11 +22,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   .card_info {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     img {
       width: 100px;
     }

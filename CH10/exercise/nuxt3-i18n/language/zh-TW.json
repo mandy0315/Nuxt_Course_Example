@@ -1,0 +1,9 @@
+{
+  "front_page": "首頁",
+  "about_us": "關於我們",
+  "contact_us": "聯絡我們",
+  "project_description": "產品介紹",
+  "latest_news": "最新消息",
+  "history": "歷史沿革",
+  "about_content": "    <div>\n      <h1>你好</h1>\n      <p>我是 Mandy</p>\n      <script>alert('xss')</script>\n    </div>"
+}

@@ -1,0 +1,10 @@
+{
+	"devDependencies": {
+		"flat": "^6.0.1",
+		"fs-extra": "^11.2.0",
+		"spreadsheet-to-json": "^2.0.0"
+	},
+	"dependencies": {
+		"@nuxt/types": "^2.17.3"
+	}
+}

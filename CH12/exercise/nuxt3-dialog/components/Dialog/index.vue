@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import { dialogData, useDialog } from "~~/composables/useDialog";
+const dialog = useDialog();
+</script>
 <template>
+  <!-- 對話框元素: 此元素能用 js showModal() 開啟視窗; close() 關閉視窗 -->
   <dialog id="dialog">
-    <header>title</header>
-    <main>content</main>
+    <header>{{ dialogData.title }}</header>
+    <main>{{ dialogData.content }}</main>
     <footer>
-      <button class="cancel">X</button>
-      <button class="confirm">O</button>
+      <button class="cancel" @click="dialog.close('cancel')">
+        {{ dialogData.cancel.btnName }}
+      </button>
+      <button class="confirm" @click="dialog.close('confirm')">
+        {{ dialogData.confirm.btnName }}
+      </button>
     </footer>
   </dialog>
 </template>
@@ -39,6 +47,7 @@ header {
   align-items: center;
   font-size: 15px;
 }
+
 main {
   width: 100%;
   height: 180px;
@@ -58,6 +67,7 @@ footer {
   width: 100%;
   height: 50px;
 }
+
 footer button {
   width: 40%;
   height: 30px;
@@ -73,6 +83,7 @@ footer button {
 .cancel {
   background-color: #741d13;
 }
+
 .confirm {
   background-color: #2e7ca8;
 }

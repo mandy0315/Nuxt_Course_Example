@@ -6,13 +6,13 @@ const openDialog = () => {
     title: "這是標題喔",
     content: "就跟你說是內文了",
     confirm: {
-      btnName: "正常",
+      btnName: "確認",
       onComplete: () => {
         console.log("確認了喔");
       },
     },
     cancel: {
-      btnName: "不正常",
+      btnName: "取消",
       onComplete: () => {
         console.log("取消了喔");
       },
@@ -37,6 +37,7 @@ const openDialog = () => {
   justify-content: center;
   align-items: center;
 }
+
 button {
   width: 150px;
   height: 30px;
@@ -47,6 +48,7 @@ button {
   cursor: pointer;
   font-weight: bold;
 }
+
 button:active {
   color: #741d13;
   border: 3px solid #741d13;

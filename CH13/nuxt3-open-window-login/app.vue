@@ -30,6 +30,7 @@ const checkAuth = async () => {
         Authorization: auth.value?.token,
       },
     });
+    window.open("", "_self").close();
   } catch (error) {
     if (error.response?.status === 403) {
       console.log("not login");

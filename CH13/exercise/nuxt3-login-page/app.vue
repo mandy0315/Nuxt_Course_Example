@@ -1,4 +1,23 @@
-<script setup></script>
+<script setup>
+// import { useLogingStore } from '~~/stores/login'
+
+const authCookie1 = useCookie('auth');
+const logingStore = useLogingStore();
+
+const token = authCookie1.value?.token;
+// onMounted 只有在 client 端執行
+onMounted(() => {
+  logingStore.checkAuth();
+
+  const id = setInterval(() => {
+    const authCookie2 = useCookie('auth');
+    if (token !== authCookie2.value?.token) {
+      window.location.reload();
+      clearInterval(id);
+    }
+  }, 100);
+});
+</script>
 
 <template>
   <div>

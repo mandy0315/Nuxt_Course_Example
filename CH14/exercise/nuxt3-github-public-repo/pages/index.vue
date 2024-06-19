@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+const { searchData } = useRepoSearch();
+
+useAsyncData("repo", async () => await searchData("mandy0315"));
+</script>
 
 <template>
   <div id="app">
